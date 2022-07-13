@@ -117,7 +117,9 @@ for i in table_ginny:
     final_ginny_table.append(ginny)
     c+=1
 
-#Rezultat
+#Rezultat aa
+
+
 print("Ginny vrijednosti stupaca tablice: ",final_ginny_table)
 
 
