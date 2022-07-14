@@ -1,12 +1,22 @@
 import numpy as np
+#GINI za kompleksnije 
+#---------RESHAPE----------
+
+#data = np.array(data)
+#print(data.transpose())  -> flipa axis
+#data = data.transpose()
+
+
 
 #Unosimo listu atributa (zadnja lista je odluka)
-list = np.array([["sunce","sunce","vjetar","kiša","kiša","kiša","vjetar","vjetar","vjetar","sunce"],
-                 ["da","ne","da","da","ne","da","ne","ne","da","ne"],
-                 ["bogat","bogat", "bogat", "siromašan", "bogat", "siromašan", "siromašan", "bogat", "bogat", "bogat"],
-                 ["kino", "tenis","kino",  "kino","doma","kino","kino",  "šoping","kino",  "tenis"]
+list = np.array([["F1Cat1", "F1Cat1", "F1Cat2", "F1Cat3", "F1Cat3", "F1Cat3", "F1Cat2", "F1Cat1", "F1Cat1", "F1Cat3", "F1Cat1", "F1Cat2", "F1Cat2", "F1Cat3"],
+                 ["F2Cat1", "F2Cat1", "F2Cat1", "F2Cat2", "F2Cat3", "F2Cat3", "F2Cat3", "F2Cat2", "F2Cat3", "F2Cat2", "F2Cat2", "F2Cat2", "F2Cat1", "F2Cat2"],
+                 ["F3Cat1", "F3Cat1", "F3Cat1", "F3Cat1", "F3Cat2", "F3Cat2", "F3Cat2", "F3Cat1", "F3Cat2", "F3Cat2", "F3Cat2", "F3Cat1", "F3Cat2", "F3Cat1"],
+                 ["F4Cat1", "F4Cat2", "F4Cat1", "F4Cat1", "F4Cat1", "F4Cat2", "F4Cat2", "F4Cat1", "F4Cat1", "F4Cat1", "F4Cat2", "F4Cat2", "F4Cat1", "F4Cat2"],
+                 ["KL1",    "KL1",    "KL2",    "KL2",    "KL2",    "KL1",    "KL2",    "KL1",    "KL2",    "KL2",    "KL2",    "KL2",    "KL2",    "KL1"]
                  ])
                  
+head = ["F1", "F2", "F3", "F4", "K"]
 
 #Podjelimo listu na odluku i atribute
 h,w = list.shape
@@ -120,7 +130,9 @@ for i in table_ginny:
 #Rezultat aa
 
 
-print("Ginny vrijednosti stupaca tablice: ",final_ginny_table)
+print("Ginny vrijednosti stupaca tablice: ")
+for i, j in zip(head,final_ginny_table):
+    print(i,j)
 
 
 
