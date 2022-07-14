@@ -5,6 +5,7 @@ import numpy as np
 #data = np.array(data)
 #print(data.transpose())  -> flipa axis
 #data = data.transpose()
+#ginii
 
 
 
