@@ -26,14 +26,16 @@ decision = np.array(list[h-1:])
 h,w = features.shape
 
 #For loop nađe weight i unique iteme
+
 weight_total = []
+
 for i in range(h):
     #MAIN
-    key = ""
+    key = None
     weight_column = []
     for i1 in features[i]:
         weight = 0
-        if key == "":
+        if key == None:
             key = i1
         elif key == i1:
             continue
@@ -50,8 +52,10 @@ for i in range(h):
     weight_total.append(weight_column)
 
 #For loop koji vraca listu parova za određeni atribut
+
 cnt_1 = 0
 index_list_final=[]
+
 for i in weight_total:
     index_list=[]
     for i1 in i:
@@ -60,10 +64,10 @@ for i in weight_total:
         decided=[]
         amounts=[]
         for x in features[cnt_1]:
-            a = 0
-            y = decision[:,cnt][0]
-            index = 0
             if x == key:                
+                y = decision[:,cnt][0]
+                index = 0
+                a = 0
                 if decided==[]:
                     decided.append(y)
                     while a<w:
@@ -87,8 +91,10 @@ for i in weight_total:
     index_list_final.append(index_list)                
     cnt_1+=1
 
-#Get weights 
+#Get weights
+
 table_weights=[]
+
 for i in weight_total:
     row_weight=[]
     for i1 in i:
@@ -96,7 +102,9 @@ for i in weight_total:
     table_weights.append(row_weight)
 
 #Normalize weights
+
 table_weights_normalized=[]
+
 for i in table_weights:
     x = sum(i)
     row_weight=[]
@@ -105,34 +113,38 @@ for i in table_weights:
     table_weights_normalized.append(row_weight)
 
 
-#Calculate ginny for columns
-table_ginny=[]
+#Calculate gini for columns
+
+table_gini=[]
+
 for i in index_list_final:
-    row_ginny=[]  
+    row_gini=[]  
     for i1 in i:
         x = sum(i1)
         G = 0
         for i2 in i1:
             G = G + (i2/x)**2
-        row_ginny.append(1-G)
-    table_ginny.append(row_ginny)
+        row_gini.append(1-G)
+    table_gini.append(row_gini)
 
-final_ginny_table=[]
+#Apply weights to calculated values
+
+final_gini_table=[]
 c=0
-for i in table_ginny:
+
+for i in table_gini:
     c1=0
-    ginny=0.0
+    gini=0.0
     for i1 in i:
-        ginny = ginny + (i1*table_weights_normalized[c][c1])
+        gini = gini + (i1*table_weights_normalized[c][c1])
         c1+=1
-    final_ginny_table.append(ginny)
+    final_gini_table.append(gini)
     c+=1
 
-#Rezultat aa
+#Rezultat 
 
-
-print("Ginny vrijednosti stupaca tablice: ")
-for i, j in zip(head,final_ginny_table):
+print("Gini vrijednosti stupaca tablice: ")
+for i, j in zip(head,final_gini_table):
     print(i,j)
 
 
