@@ -29,7 +29,7 @@ for i in l_uniques_total:
 
 for i, j in zip(l_new_column_total,l_uniques_total):
     print(i , j)
-
+#
 
 
 
